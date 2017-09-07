@@ -27,12 +27,31 @@ public class MainActivity extends AppCompatActivity {
         etNum2 = (EditText) findViewById(R.id.num2);
         result = (TextView) findViewById(R.id.result);
     }  //onCreate()
-
+    
+    public boolean tryParseDouble(String value) {
+        try {
+            Double.parseDouble(value);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
     // TODO: input validation: set text to show error
     public void addNums(View v) {
-        num1 = Double.parseDouble(etNum1.getText().toString());
-        num2 = Double.parseDouble(etNum2.getText().toString());
-        result.setText(Double.toString(num1 + num2));
-    }  //addNums()
+        if(etNum1.getText().toString().equals("") || tryParseDouble(etNum1.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else if(etNum2.getText().toString().equals("") || tryParseDouble(etNum2.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else{
+
+            num1 = Double.parseDouble(etNum1.getText().toString());
+            num2 = Double.parseDouble(etNum2.getText().toString());
+            result.setText(Double.toString(num1 + num2));
+        }
+    }
 
 }
