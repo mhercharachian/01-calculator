@@ -113,5 +113,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    public void clearInput(View v){
+        result.setText("The answer will be here");
+        etNum1.setText("");
+        etNum2.setText("");
+    }
 
 }
