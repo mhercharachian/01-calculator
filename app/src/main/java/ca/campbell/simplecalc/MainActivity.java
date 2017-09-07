@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         etNum2 = (EditText) findViewById(R.id.num2);
         result = (TextView) findViewById(R.id.result);
     }  //onCreate()
-    
+
     public boolean tryParseDouble(String value) {
         try {
             Double.parseDouble(value);
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
-    // TODO: input validation: set text to show error
     public void addNums(View v) {
         if(etNum1.getText().toString().equals("") || tryParseDouble(etNum1.getText().toString()) == false)
         {
@@ -51,6 +50,67 @@ public class MainActivity extends AppCompatActivity {
             num1 = Double.parseDouble(etNum1.getText().toString());
             num2 = Double.parseDouble(etNum2.getText().toString());
             result.setText(Double.toString(num1 + num2));
+        }
+    }
+    public void subtractNums(View v) {
+        if(etNum1.getText().toString().equals("") || tryParseDouble(etNum1.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else if(etNum2.getText().toString().equals("") || tryParseDouble(etNum2.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else{
+
+            num1 = Double.parseDouble(etNum1.getText().toString());
+            num2 = Double.parseDouble(etNum2.getText().toString());
+            if(num1 < num2)
+            {
+                result.setText("First number cannot be smaller than the second");
+            }
+            else{
+                result.setText(Double.toString(num1 - num2));
+            }
+        }
+    }
+    public void multiplyNums(View v) {
+        if(etNum1.getText().toString().equals("") || tryParseDouble(etNum1.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else if(etNum2.getText().toString().equals("") || tryParseDouble(etNum2.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else{
+
+            num1 = Double.parseDouble(etNum1.getText().toString());
+            num2 = Double.parseDouble(etNum2.getText().toString());
+            result.setText(Double.toString(num1 * num2));
+
+        }
+    }
+    public void divideNums(View v) {
+        if(etNum1.getText().toString().equals("") || tryParseDouble(etNum1.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else if(etNum2.getText().toString().equals("") || tryParseDouble(etNum2.getText().toString()) == false)
+        {
+            result.setText("ERROR");
+        }
+        else{
+
+            num1 = Double.parseDouble(etNum1.getText().toString());
+            num2 = Double.parseDouble(etNum2.getText().toString());
+            if(num2 == 0)
+            {
+                result.setText("Cannot divide by zero");
+            }
+            else{
+                result.setText(Double.toString(num1 / num2));
+            }
         }
     }
 
