@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyTheme"  parent="@android:style/Theme.Material.Light">
+        <item name="android:textColorHint">@color/colorPrimary</item>
+    </style>
+
 </resources>

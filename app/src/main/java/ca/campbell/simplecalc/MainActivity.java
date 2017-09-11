@@ -1,5 +1,6 @@
 package ca.campbell.simplecalc;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 
 //  TODO: the hint for the result widget is hard coded, put it in the strings file
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     EditText etNum1, etNum2;
     TextView result;
     double num1, num2;
